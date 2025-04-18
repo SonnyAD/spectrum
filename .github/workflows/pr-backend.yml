@@ -12,20 +12,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-        name: Checkout repo
-      - uses: actions/setup-go@v5
+      - name: 📥 Checkout repo
+        uses: actions/checkout@v4
+        
+      - name: 🐻 Setup Golang
+        uses: actions/setup-go@v5
         with:
           go-version: '1.21'
           cache: false
-      - name: golangci-lint
+
+      - name: 🔍 Lint code
         uses: golangci/golangci-lint-action@v6
         with:
+          working-directory: backend          
           version: v1.56
           args: --timeout=5m
-      - name: gotestsum install
+
+      - name: 📁 Install test dependencies
         run: |
           go install gotest.tools/gotestsum@latest
-      - name: Tests
+
+      - name: 🧪 Run tests
+        working-directory: backend
         run: | 
           make test
