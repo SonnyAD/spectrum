@@ -6,16 +6,15 @@ import Page from './[[id]]/+page.svelte';
 /*vi.mock('fabric', () => ({
 	loadSVGFromURL: vi.fn()
 }));	*/
-vi.mock('fabric')
+vi.mock('fabric');
 
 describe('/+page.svelte', () => {
-
 	class ResizeObserver {
 		observe() {}
 		unobserve() {}
 		disconnect() {}
 	}
-	
+
 	global.ResizeObserver = ResizeObserver;
 
 	test('should render h1', () => {
