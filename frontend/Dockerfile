@@ -23,5 +23,5 @@ COPY package.json .
 ENV NODE_ENV=production
 ENV PORT=2000
 ENV HOST=0.0.0.0
-ENV PUBLIC_VERSION=4.0.0
+ENV VITE_VERSION=1.0.0
 CMD [ "node", "build" ]

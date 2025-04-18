@@ -11,11 +11,11 @@ info:
   contact:
     email: api@utile.space
     name: API Support
-  description: The collection of free API from utile.space, the Swiss Army Knife webtool.
+  description: The backend powering "Opinions Sur Rue" online spectrum platform.
   license:
     name: utile.space API License
     url: https://utile.space/api/
-  title: utile.space Open API
+  title: OSR Spectrum API
   version: "1.0"
 paths:
   /spectrum/ws:

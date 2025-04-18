@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"sync"
 
-	"SonnyAD/spectrum/domain/spectrum"
+	"Opinions-sur-Rue/spectrum/domain/spectrum"
 
 	"github.com/gorilla/websocket"
 	log "github.com/sirupsen/logrus"

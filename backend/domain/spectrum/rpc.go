@@ -9,7 +9,7 @@ import (
 	"slices"
 	"strings"
 
-	"SonnyAD/spectrum/domain/valueobjects"
+	"Opinions-sur-Rue/spectrum/domain/valueobjects"
 
 	log "github.com/sirupsen/logrus"
 )

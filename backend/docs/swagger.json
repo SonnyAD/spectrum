@@ -1,8 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "The collection of free API from utile.space, the Swiss Army Knife webtool.",
-        "title": "utile.space Open API",
+        "description": "The backend powering \"Opinions Sur Rue\" online spectrum platform.",
+        "title": "OSR Spectrum API",
         "contact": {
             "name": "API Support",
             "email": "api@utile.space"

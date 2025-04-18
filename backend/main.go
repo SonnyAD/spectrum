@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"os"
 
-	"SonnyAD/spectrum/api"
-	_ "SonnyAD/spectrum/docs"
-	"SonnyAD/spectrum/utils"
+	"Opinions-sur-Rue/spectrum/api"
+	_ "Opinions-sur-Rue/spectrum/docs"
+	"Opinions-sur-Rue/spectrum/utils"
 
 	"github.com/gorilla/mux"
 	log "github.com/sirupsen/logrus"
@@ -18,12 +18,12 @@ func EmptyResponse(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusNoContent)
 }
 
-// @Summary		Healthcheck
-// @Description	Get the status of the API
-// @Tags			health
-// @Produce		json,xml,application/yaml,plain
-// @Success		200	{object}	Health
-// @Router			/status [get]
+//	@Summary		Healthcheck
+//	@Description	Get the status of the API
+//	@Tags			health
+//	@Produce		json,xml,application/yaml,plain
+//	@Success		200	{object}	Health
+//	@Router			/status [get]
 func HealthCheck(w http.ResponseWriter, r *http.Request) {
 	var health Health
 	health.Status = "up"
@@ -47,27 +47,24 @@ func initLogging() {
 	//log.SetFormatter(&log.JSONFormatter{})
 }
 
-// @title			SonnyAD Spectrum API
-// @version		1.0
-// @description	The backend powering SonnyAD online spectrum platform.
+//	@title			OSR Spectrum API
+//	@version		1.0
+//	@description	The backend powering "Opinions Sur Rue" online spectrum platform.
 //
-// @contact.name	API Support
-// @contact.email	api@utile.space
+//	@contact.name	API Support
+//	@contact.email	api@utile.space
 //
-// @license.name	utile.space API License
-// @license.url	https://utile.space/api/
+//	@license.name	utile.space API License
+//	@license.url	https://utile.space/api/
 //
-// @BasePath		/api
+//	@BasePath		/api
 func main() {
 	initLogging()
 
-	router := mux.NewRouter()
+	apiRouter := mux.NewRouter()
 
-	router.Use(utils.EnableCors)
+	apiRouter.Use(utils.EnableCors)
 
-	apiRouter := router.PathPrefix("/api").Subrouter()
-
-	router.HandleFunc("/", EmptyResponse).Methods(http.MethodGet)
 	apiRouter.HandleFunc("/", EmptyResponse).Methods(http.MethodGet)
 
 	apiRouter.HandleFunc("/spectrum/ws", api.SpectrumWebsocket).Methods(http.MethodGet)
@@ -80,11 +77,11 @@ func main() {
 		httpSwagger.DomID("swagger-ui"),
 	)).Methods(http.MethodGet)
 
-	port, present := os.LookupEnv("PORT")
+	port, present := os.LookupEnv("API_PORT")
 	if !present {
 		port = "3000"
 	}
 
 	log.Info("Starting server on port ", port)
-	log.Fatal(http.ListenAndServe(":"+port, router))
+	log.Fatal(http.ListenAndServe(":"+port, apiRouter))
 }

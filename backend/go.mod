@@ -1,4 +1,4 @@
-module SonnyAD/spectrum
+module Opinions-sur-Rue/spectrum
 
 go 1.21
 
