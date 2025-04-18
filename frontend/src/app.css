@@ -5,7 +5,7 @@
 @plugin '@tailwindcss/typography';
 
 svg {
-    display: inline;
+	display: inline;
 }
 
 :root {

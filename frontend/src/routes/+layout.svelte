@@ -14,8 +14,7 @@
 		default: '#dddddd' // relates to simply '.show()'
 	};
 
-	let description =
-		'Welcome to Spectrum.';
+	let description = 'Welcome to Spectrum.';
 </script>
 
 <svelte:head>

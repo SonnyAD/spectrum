@@ -33,6 +33,7 @@ jobs:
       - name: 🧪 Run tests 
         working-directory: frontend
         run: |
+          npx playwright install
           npm run test
       
       - name: 🛠 Build application

@@ -1,4 +1,5 @@
 <script lang="ts">
+	/* eslint-disable */
 	// @ts-nocheck
 	/* eslint svelte/no-at-html-tags: "off" */
 
@@ -146,7 +147,7 @@
 
 		currentOpinion = 'notReplied';
 
-		spectrumId = $page.params.id;
+		spectrumId = $page.params?.id;
 		websocket = startWebsocket(signIn, parseCommand, connectionLost);
 
 		// Prepare Both Canvas

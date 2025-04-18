@@ -29,9 +29,9 @@
 			css: (/** @type {number} */ t) => `opacity: ${(t - 0.7) * 1}; transform-origin: top right;`
 		};
 	}
-
-	// TODO: fix that?
-	// @ts-ignore
+	/**
+	 * @param {CustomEvent} event
+	 */
 	function createToast({ detail }) {
 		const { message, type, options = {} } = detail;
 		const background = themes[type] || themes.default;
@@ -70,7 +70,7 @@
 	 * @param {{ persist: any; id: any; }} toast
 	 */
 	function maybePurge(toast) {
-		!toast.persist && purge(toast.id);
+		if (!toast.persist) purge(toast.id);
 	}
 
 	/**

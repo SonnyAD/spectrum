@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SvelteComponentTyped } from 'svelte/types/runtime';
 
 export type TNotificationTypes = 'default' | 'danger' | 'warning' | 'info' | 'success';
